@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuidado con el Gato · Tienda de mascotas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="C:\Users\User\OneDrive\Documentos\QUINTO SMESTRE\gato\style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <a href="#inicio" class="logo">🐾 Cuidado con el Gato</a>
+    <nav class="nav-bar" id="nav">
+      <a href="#bestsellers-anchor">Más vendidos</a>
+      <a href="#recommendations-anchor">Recomendados</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#wishlist-anchor">Deseos</a>
+      <a href="#cart-anchor">Carrito <span class="badge" id="cart-count">0</span></a>
+      <a href="#reviews-anchor">Reseñas</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#catalog-anchor">Administrar</a>
+    </nav>
+    <div class="auth-area" id="auth-area"></div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="sign" role="img" aria-label="Letrero: Cuidado con el gato">
+    <div class="band"></div>
+    <div class="sign-body">
+      <svg viewBox="0 0 100 90" aria-hidden="true"><path d="M50 7 L95 84 H5Z" fill="#fff" stroke="#14213d" stroke-width="8" stroke-linejoin="round"/><text x="50" y="72" text-anchor="middle" font-size="42">🐱</text></svg>
+      <h1>Cuidado con el gato</h1>
+    </div>
+    <div class="sign-foot">Tienda de mascotas</div>
+    <div class="band"></div>
+  </div>
+  <div class="hero-in">
+    <p>Alimento, camas, juguetes y accesorios para gatos, perros, aves, peces y roedores. Paga con tarjeta o en efectivo y pide tu factura electrónica.</p>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-accent">Ver catálogo</a>
+      <button class="btn btn-ghost" id="hero-auth" onclick="openAuth('register')">Crear cuenta</button>
+    </div>
+  </div>
+</section>
+<div class="stripe"></div>
+
+<main>
+  <section class="block" id="bestsellers-anchor">
+    <h2>Lo más vendido</h2>
+    <p class="lead">Lo que más se llevan nuestros clientes esta semana.</p>
+    <div id="bestsellers-list" class="grid"></div>
+  </section>
+
+  <section class="block" id="recommendations-anchor">
+    <h2>Recomendaciones de la casa</h2>
+    <p class="lead">Productos que nos encantan para el día a día de tu mascota.</p>
+    <div id="recommendations-list" class="grid"></div>
+  </section>
+
+  <section class="block" id="catalogo">
+    <h2>Catálogo general</h2>
+    <div class="toolbar"><input type="search" id="search" placeholder="Buscar por nombre o descripción" aria-label="Buscar productos"></div>
+    <div id="product-list" class="grid"></div>
+  </section>
+
+  <section class="block" id="wishlist-anchor">
+    <h2>Tu lista de deseos</h2>
+    <div id="wishlist-container" class="grid"></div>
+  </section>
+
+  <div class="two-col">
+    <section class="block" id="cart-anchor">
+      <h2>Carrito</h2>
+      <ul id="cart-items" class="cart-list"></ul>
+      <p class="total">Total: $<span id="cart-total">0.00</span></p>
+      <button id="checkout-btn" class="btn btn-primary full" onclick="startCheckout()" style="display:none">Proceder al pago</button>
+    </section>
+
+    <section class="block" id="reviews-anchor">
+      <h2>Reseñas</h2>
+      <form id="review-form">
+        <input type="text" id="review-user" placeholder="Tu nombre" required>
+        <textarea id="review-text" placeholder="Cuéntanos tu experiencia" rows="2" required></textarea>
+        <button type="submit" class="btn btn-primary">Publicar reseña</button>
+      </form>
+      <div id="reviews-list"></div>
+    </section>
+  </div>
+
+  <section class="block faq" id="preguntas">
+    <h2>Preguntas frecuentes</h2>
+    <p class="lead">Sobre compras, pagos y nuestro proveedor.</p>
+    <details><summary>¿Quién es el proveedor de los productos?</summary><p>Trabajamos con distribuidores nacionales de alimento y accesorios para mascotas. Cada producto indica su descripción y presentación en la ficha.</p></details>
+    <details><summary>¿Qué formas de pago aceptan?</summary><p>Tarjeta de crédito o débito nacional y efectivo en OXXO o contra entrega.</p></details>
+    <details><summary>¿Cómo pido mi factura electrónica?</summary><p>Marca “Necesito factura electrónica” al pagar y captura tu RFC, razón social y correo. La recibirás en ese correo.</p></details>
+    <details><summary>¿Cuánto tarda en llegar mi pedido?</summary><p>Los pedidos pagados salen en 24 horas. El envío es gratis desde $499.</p></details>
+    <details><summary>¿Puedo cambiar o devolver un producto?</summary><p>Sí. Escríbenos por redes sociales con tu folio y te ayudamos con el cambio.</p></details>
+  </section>
+
+  <section class="block two-col" id="redes">
+    <div>
+      <h2>Síguenos en redes</h2>
+      <p class="lead">Tips de cuidado, novedades y promociones.</p>
+      <div class="social">
+        <a href="https://instagram.com" target="_blank" rel="noopener">📷 Instagram: @cuidado_con_el_gato_oficial</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener">🎵 TikTok: @cuidado_con_el_gato_oficial</a>
+        <a href="https://facebook.com" target="_blank" rel="noopener">📘 Facebook: Cuidado con el Gato Oficial</a>
+      </div>
+    </div>
+    <article class="post">
+      <div class="post-img" aria-hidden="true">😺</div>
+      <div class="post-txt"><strong>@cuidado_con_el_gato_oficial</strong>Tip de la semana: cambia el agua de tu gato a diario. Con una fuente automática toma más y se hidrata mejor. 💧</div>
+    </article>
+  </section>
+
+  <section class="block" id="catalog-anchor">
+    <h2>Administrar productos</h2>
+    <label class="check admin-switch"><input type="checkbox" id="admin-toggle"> Activar modo administrador</label>
+    <form id="product-form" class="form-grid" hidden>
+      <input type="hidden" id="product-id">
+      <label>Nombre<input type="text" id="product-name" placeholder="Ej. Correa para perro" required></label>
+      <label>Precio ($)<input type="number" id="product-price" step="0.01" min="0" placeholder="150.00" required></label>
+      <label>URL de imagen<input type="text" id="product-image" placeholder="https://..."></label>
+      <label>Descripción<input type="text" id="product-desc" placeholder="Accesorio resistente" required></label>
+      <button type="submit" id="save-btn" class="btn btn-primary">Guardar producto</button>
+    </form>
+  </section>
+</main>
+
+<!-- Modal de acceso -->
+<div id="auth-modal" class="modal" onclick="if(event.target===this)closeModal('auth-modal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('auth-modal')" aria-label="Cerrar">&times;</button>
+    <h2 id="auth-title">Iniciar sesión</h2>
+    <p id="auth-note" class="note"></p>
+    <div class="tabs">
+      <button type="button" id="tab-login" onclick="openAuth('login')">Iniciar sesión</button>
+      <button type="button" id="tab-register" onclick="openAuth('register')">Registrarme</button>
+    </div>
+    <form id="auth-form">
+      <label id="name-wrap">Nombre<input type="text" id="auth-name" autocomplete="name"></label>
+      <label>Correo electrónico<input type="email" id="auth-email" required autocomplete="email"></label>
+      <label>Contraseña<input type="password" id="auth-pass" required minlength="6" autocomplete="current-password"></label>
+      <label id="pass2-wrap">Repite la contraseña<input type="password" id="auth-pass2" autocomplete="new-password"></label>
+      <p id="auth-error" class="error" role="alert"></p>
+      <button type="submit" id="auth-submit" class="btn btn-primary full">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de pago -->
+<div id="payment-modal" class="modal" onclick="if(event.target===this)closeModal('payment-modal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('payment-modal')" aria-label="Cerrar">&times;</button>
+    <h2>Pago simulado</h2>
+    <p>Total a pagar: <strong>$<span id="modal-total">0.00</span></strong></p>
+    <form id="payment-form">
+      <label>Método de pago
+        <select id="payment-method" onchange="togglePaymentFields()">
+          <option value="card">Tarjeta de crédito / débito</option>
+          <option value="cash">Efectivo (OXXO / contra entrega)</option>
+        </select>
+      </label>
+      <div id="card-fields">
+        <label>Número de tarjeta<input type="text" placeholder="1234 5678 9012 3456" maxlength="16" inputmode="numeric"></label>
+        <div class="row2">
+          <label>Expiración<input type="text" placeholder="MM/AA" maxlength="5"></label>
+          <label>CVV<input type="password" placeholder="123" maxlength="3"></label>
+        </div>
+      </div>
+      <p id="cash-fields" class="note" style="display:none">Generaremos una referencia para pagar en OXXO o al repartidor.</p>
+      <label class="check"><input type="checkbox" id="invoice" onchange="toggleInvoice()"> Necesito factura electrónica</label>
+      <div id="invoice-fields" hidden>
+        <label>RFC<input type="text" id="inv-rfc" placeholder="XAXX010101000" maxlength="13"></label>
+        <label>Razón social<input type="text" id="inv-name" placeholder="Nombre o razón social"></label>
+        <label>Correo para la factura<input type="email" id="inv-email" placeholder="correo@ejemplo.com"></label>
+      </div>
+      <p id="pay-error" class="error" role="alert"></p>
+      <button type="submit" class="btn btn-primary full">Confirmar y pagar</button>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<footer>
+  <p><strong>Cuidado con el Gato</strong></p>
+  <p class="small">&copy; 2026 Cuidado con el Gato. Todos los derechos reservados.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
